@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSVP</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% from "_formhelpers.html" import render_field %}
+<form method=post action="/">
+  <dl>
+    {{ render_field(form.guest_names) }}
+    {{ render_field(form.attending) }}
+    {{ render_field(form.mailing_address) }}
+    {{ render_field(form.email) }}
+    {{ render_field(form.food_preferences) }}
+    {{ render_field(form.hotel) }}
+    {{ render_field(form.notes) }}
+  </dl>
+  <p><input type=submit value=Submit>
+</form>
+</body>
+</html>
