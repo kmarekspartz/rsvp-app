@@ -13,7 +13,9 @@ class RSVP(Base):
     attending = Column(Enum('Yes', 'No', name='attending'), nullable=False)
     mailing_address = Column(Text)
     email = Column(String(50))
-    food_preferences = Column(Enum('Vegan', 'None', name='food_preferences'), nullable=False)
+    food_preferences = Column(
+        Enum('Vegan', 'None', name='food_preferences'),
+        nullable=False)
     hotel = Column(Enum('Here', 'There', name='hotel'), nullable=False)
     notes = Column(Text)
 
